@@ -85,9 +85,7 @@ main h1 {
     padding: 1rem;
 }
 
-/* =====================
-   ABOUT SECTION
-===================== */
+/* ABOUT SECTION */
 
 .about-content {
     display: grid;
@@ -100,14 +98,10 @@ main h1 {
     line-height: 1.8;
 }
 
-/* Profile image */
-
 .profile {
     width: 150px;
     border: 1px solid #ccc;
 }
-
-/* Maharashtra, India heading */
 
 .about h3 {
     text-align: center;
@@ -117,16 +111,12 @@ main h1 {
     font-size: 1.5rem;
 }
 
-/* Country section */
-
 .country-info {
     display: flex;
     gap: 20px;
     align-items: flex-start;
     margin-top: 20px;
 }
-
-/* Flag */
 
 .country-info figure {
     text-align: center;
@@ -142,8 +132,6 @@ main h1 {
     font-style: italic;
     font-size: 0.9rem;
 }
-
-/* Country description */
 
 .country-info p {
     line-height: 1.8;
@@ -179,59 +167,3 @@ footer {
     font-size: 0.9rem;
 }
 
-/* About card layout */
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    padding: 20px;
-}
-
-.about-text p {
-    line-height: 1.8;
-}
-
-/* Profile image */
-.profile {
-    width: 150px;
-    border: 1px solid #ccc;
-}
-
-/* Maharashtra, India heading */
-.about h3 {
-    text-align: center;
-    margin: 30px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #999;
-    font-size: 1.4rem;
-}
-
-/* Flag section */
-.country-info {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-top: 20px;
-}
-
-/* Figure containing flag and caption */
-.country-info figure {
-    text-align: center;
-}
-
-.country-info figure img {
-    width: 150px;
-    border: 1px solid #ccc;
-}
-
-/* Flag caption */
-.country-info figcaption {
-    margin-top: 8px;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-
-/* Country description */
-.country-info p {
-    line-height: 1.8;
-}
