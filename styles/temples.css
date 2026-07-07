@@ -38,12 +38,12 @@ header h1{
     content:"✖";
 }
 
-.navigation{
+nav{
     display:flex;
     flex-direction:column;
 }
 
-.navigation a{
+nav a{
     display:none;
     text-decoration:none;
     color:white;
