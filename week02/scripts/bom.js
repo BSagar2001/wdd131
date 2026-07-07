@@ -1,42 +1,44 @@
-// Select the HTML elements
+// Select elements from the DOM
+const inputElement = document.querySelector("#favchap");
+const buttonElement = document.querySelector("button");
+const listElement = document.querySelector("#list");
 
-const input = document.querySelector("#favchap");
+// Wait for button click
+buttonElement.addEventListener("click", function () {
 
-const button = document.querySelector("button");
+    // Check if input is not empty
+    if (inputElement.value.trim() !== "") {
 
-const list = document.querySelector("#list");
+        // Create list item
+        const li = document.createElement("li");
+        li.textContent = inputElement.value;
 
+        // Create delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
 
-// Create a list item
+        // Accessibility
+        deleteBtn.setAttribute(
+            "aria-label",
+            `Remove ${inputElement.value}`
+        );
 
-const li = document.createElement("li");
+        // Delete chapter
+        deleteBtn.addEventListener("click", function () {
+            listElement.removeChild(li);
+            inputElement.focus();
+        });
 
+        // Add button to list item
+        li.appendChild(deleteBtn);
 
-// Create a delete button
+        // Add list item to list
+        listElement.appendChild(li);
 
-const deleteButton = document.createElement("button");
+        // Clear input
+        inputElement.value = "";
+    }
 
-
-// Put the input text inside the list item
-
-li.textContent = input.value;
-
-
-// Put an X on the delete button
-
-deleteButton.textContent = "❌";
-
-
-// Accessibility label
-
-deleteButton.setAttribute("aria-label", "Remove Chapter");
-
-
-// Add the button into the list item
-
-li.append(deleteButton);
-
-
-// Add the list item into the unordered list
-
-list.append(li);
+    // Return cursor to input
+    inputElement.focus();
+});
