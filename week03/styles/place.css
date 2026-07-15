@@ -1,88 +1,106 @@
-:root{
-
---primary:#ff9933;
---secondary:#138808;
---light:#ffffff;
---dark:#222;
-
+:root {
+    --saffron: #FF9933;
+    --white: #FFFFFF;
+    --green: #138808;
+    --blue: #000080;
+    --dark: #222;
 }
 
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body{
-
-font-family:Arial, Helvetica, sans-serif;
-background:#f7f7f7;
-color:var(--dark);
-
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--dark);
 }
 
-header{
 
-background:var(--primary);
-color:white;
-text-align:center;
-padding:20px;
-
+/* Indian flag saffron header */
+header {
+    background: var(--saffron);
+    color: white;
+    text-align:center;
+    padding:25px;
+    border-bottom: 8px solid var(--green);
 }
 
-.hero img{
 
-width:100%;
-display:block;
-
+header h1 {
+    color:white;
+    font-size:3rem;
 }
 
-.content{
 
-display:grid;
-grid-template-columns:1fr;
-gap:20px;
-padding:20px;
-
+/* Hero image */
+.hero img {
+    width:100%;
+    display:block;
 }
 
-.card{
 
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 5px rgba(0,0,0,.2);
-
+/* Mobile content */
+.content {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:20px;
 }
 
-.card h2{
 
-margin-bottom:15px;
-color:var(--secondary);
-
+/* White cards */
+.card {
+    background:white;
+    border-top:8px solid var(--saffron);
+    border-bottom:8px solid var(--green);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,.2);
 }
 
-.card p{
 
-margin-bottom:10px;
-
+/* Titles */
+.card h2 {
+    color:var(--green);
+    text-align:center;
+    font-size:2rem;
 }
 
-.weather-icon{
 
-width:60px;
-display:block;
-margin-bottom:10px;
-
+/* Text */
+.card p {
+    text-align:center;
+    margin:10px;
 }
 
-footer{
 
-background:var(--secondary);
-color:white;
-text-align:center;
-padding:20px;
+/* Weather icon */
+.weather-icon {
+    width:80px;
+    display:block;
+    margin:auto;
+}
 
+
+/* Footer green */
+footer {
+    background:var(--green);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+
+/* Add Ashoka blue accent */
+footer::before {
+    content:"";
+    display:block;
+    width:40px;
+    height:40px;
+    border:3px solid var(--blue);
+    border-radius:50%;
+    margin:0 auto 10px;
 }

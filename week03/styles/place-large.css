@@ -1,20 +1,78 @@
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
 
-.content{
 
-grid-template-columns:1fr 1fr;
+.hero {
+    position:relative;
+}
+
+
+.hero img {
+    height:650px;
+    object-fit:cover;
+}
+
+
+/* Overlay cards */
+.content {
+    position:absolute;
+    inset:0;
+}
+
+
+/* Data and Weather cards */
+.card {
+
+    position:absolute;
+    width:320px;
+
+    background:rgba(255,255,255,.90);
+
+    border-top:10px solid var(--saffron);
+    border-bottom:10px solid var(--green);
 
 }
 
-.weather h2::after{
 
-content:" ⛅";
+/* Data position */
+.content .card:first-child {
+
+    top:40px;
+    left:40px;
 
 }
 
-.weather-icon{
 
-display:none;
+/* Weather position */
+.weather {
+
+    right:40px;
+    bottom:40px;
+
+}
+
+
+/* Desktop heading */
+.card h2 {
+
+    background:var(--green);
+    color:white;
+    padding:15px;
+
+}
+
+
+/* Weather emoji */
+.weather h2::after {
+
+    content:" ⛅";
+
+}
+
+
+/* Hide SVG on desktop */
+.weather-icon {
+
+    display:none;
 
 }
 
