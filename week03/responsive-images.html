@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Images Activity</title>
+
+    <link rel="stylesheet" href="styles/responsive-images.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Responsive Images</h1>
+    </header>
+
+    <main>
+
+        <div class="hero">
+
+            <picture>
+
+                <!-- Large image -->
+                <source
+                    srcset="images/hero-large.webp"
+                    media="(min-width: 1000px)">
+
+                <!-- Medium image -->
+                <source
+                    srcset="images/hero-medium.webp"
+                    media="(min-width: 500px)">
+
+                <!-- Default Small image -->
+                <img
+                    src="images/hero-small.webp"
+                    alt="Bangkok Thailand Temple"
+                    width="1500"
+                    height="750">
+
+            </picture>
+
+        </div>
+
+        <section>
+            <h2>Responsive Images Example</h2>
+
+            <p>
+                This page demonstrates how the browser automatically loads
+                different image sizes depending on the screen width. Smaller
+                devices load smaller images while larger screens load higher
+                quality images.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 | Your Name | WDD 131</p>
+    </footer>
+
+</body>
+</html>
