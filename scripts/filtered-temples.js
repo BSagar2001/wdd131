@@ -1,7 +1,3 @@
-// ===============================
-// Temple Data
-// ===============================
-
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -28,6 +24,33 @@ const temples = [
         area: 96630,
         imageUrl:
             "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
+    },
+
+    {
+        templeName: "Rome Italy",
+        location: "Rome, Italy",
+        dedicated: "2019, March, 10",
+        area: 41000,
+        imageUrl:
+            "https://churchofjesuschristtemples.org/assets/img/temples/rome-italy-temple/rome-italy-temple-4785.jpg"
+    },
+
+    {
+        templeName: "Salt Lake Utah",
+        location: "Salt Lake City, Utah, United States",
+        dedicated: "1893, April, 6",
+        area: 253000,
+        imageUrl:
+            "https://churchofjesuschristtemples.org/assets/img/temples/salt-lake-temple/salt-lake-temple-37745.jpg"
+    },
+
+    {
+        templeName: "Bengaluru India",
+        location: "Bengaluru, India",
+        dedicated: "2023, October, 22",
+        area: 19000,
+        imageUrl:
+            "https://churchofjesuschristtemples.org/assets/img/temples/bengaluru-india-temple/bengaluru-india-temple-1.jpg"
     },
 
     {
@@ -64,59 +87,26 @@ const temples = [
         area: 116642,
         imageUrl:
             "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
-    },
-
-    {
-        templeName: "Rome Italy",
-        location: "Rome, Italy",
-        dedicated: "2019, March, 10",
-        area: 41000,
-        imageUrl:
-            "https://churchofjesuschristtemples.org/assets/img/temples/rome-italy-temple/rome-italy-temple-4356.jpg"
-    },
-
-    {
-        templeName: "Salt Lake Utah",
-        location: "Salt Lake City, Utah, United States",
-        dedicated: "1893, April, 6",
-        area: 253015,
-        imageUrl:
-            "https://churchofjesuschristtemples.org/assets/img/temples/salt-lake-temple/salt-lake-temple-4356.jpg"
-    },
-
-    {
-        templeName: "Bengaluru India",
-        location: "Bengaluru, India",
-        dedicated: "2023, December, 2",
-        area: 33000,
-        imageUrl:
-            "https://churchofjesuschristtemples.org/assets/img/temples/bengaluru-india-temple/bengaluru-india-temple-4356.jpg"
     }
 ];
 
-
-// ===============================
-// Select HTML Elements
-// ===============================
-
 const gallery = document.querySelector(".gallery");
+
 const menuButton = document.querySelector("#menu");
 const navigation = document.querySelector(".navigation");
 
-
-// ===============================
-// Display Temple Cards
-// ===============================
+menuButton.addEventListener("click", () => {
+    navigation.classList.toggle("open");
+    menuButton.classList.toggle("open");
+});
 
 function displayTemples(templeList) {
-
     gallery.innerHTML = "";
 
     templeList.forEach((temple) => {
+        const card = document.createElement("figure");
 
-        const figure = document.createElement("figure");
-
-        figure.innerHTML = `
+        card.innerHTML = `
             <img 
                 src="${temple.imageUrl}" 
                 alt="${temple.templeName}" 
@@ -125,54 +115,42 @@ function displayTemples(templeList) {
 
             <figcaption>
                 <h3>${temple.templeName}</h3>
-
                 <p><strong>Location:</strong> ${temple.location}</p>
-
                 <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
-
                 <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
             </figcaption>
         `;
 
-        gallery.appendChild(figure);
+        gallery.appendChild(card);
     });
 }
 
-
-// ===============================
-// Filter Temples
-// ===============================
-
 function filterTemples(category) {
-
     let filteredTemples;
 
     switch (category) {
-
         case "old":
-            filteredTemples = temples.filter((temple) => {
-                const year = parseInt(temple.dedicated);
-                return year < 1900;
-            });
+            filteredTemples = temples.filter(
+                (temple) => new Date(temple.dedicated).getFullYear() < 1900
+            );
             break;
 
         case "new":
-            filteredTemples = temples.filter((temple) => {
-                const year = parseInt(temple.dedicated);
-                return year > 2000;
-            });
+            filteredTemples = temples.filter(
+                (temple) => new Date(temple.dedicated).getFullYear() > 2000
+            );
             break;
 
         case "large":
-            filteredTemples = temples.filter((temple) => {
-                return temple.area > 90000;
-            });
+            filteredTemples = temples.filter(
+                (temple) => temple.area > 90000
+            );
             break;
 
         case "small":
-            filteredTemples = temples.filter((temple) => {
-                return temple.area < 10000;
-            });
+            filteredTemples = temples.filter(
+                (temple) => temple.area < 10000
+            );
             break;
 
         default:
@@ -182,59 +160,23 @@ function filterTemples(category) {
     displayTemples(filteredTemples);
 }
 
-
-// ===============================
-// Navigation Menu
-// ===============================
-
-menuButton.addEventListener("click", () => {
-
-    navigation.classList.toggle("open");
-
-    menuButton.classList.toggle("open");
-
-});
-
-
-// ===============================
-// Navigation Filtering
-// ===============================
-
-const navigationLinks = document.querySelectorAll(".navigation a");
-
-navigationLinks.forEach((link) => {
-
+document.querySelectorAll(".navigation a").forEach((link) => {
     link.addEventListener("click", (event) => {
-
         event.preventDefault();
 
         const category = link.textContent.toLowerCase();
 
         filterTemples(category);
 
-        // Close the mobile menu after clicking
         navigation.classList.remove("open");
-
         menuButton.classList.remove("open");
-
     });
-
 });
 
-
-// ===============================
-// Footer Information
-// ===============================
+displayTemples(temples);
 
 document.querySelector("#currentyear").textContent =
     new Date().getFullYear();
 
 document.querySelector("#lastModified").textContent =
     `Last Modified: ${document.lastModified}`;
-
-
-// ===============================
-// Display All Temples Initially
-// ===============================
-
-displayTemples(temples);
